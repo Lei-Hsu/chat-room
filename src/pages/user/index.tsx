@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
-import { useAppDispatch } from "@Hooks/hooks";
-import { getSaga } from "@Redux/slices/counterSlice";
+import { useAppDispatch } from '@Hooks/hooks';
+import { getSaga } from '@Redux/slices/counterSlice';
 
 const user = () => {
   const dispatch = useAppDispatch();
