@@ -3,7 +3,6 @@ import React from 'react';
 import { MessageInfo } from '@Interface/I_message';
 
 import Message from '@Components/message/Message';
-import MessageFooter from '@Components/message/MessageFooter';
 import MessageHeader from '@Components/message/MessageHeader';
 
 const mockHomeInfo: MessageInfo[] = [
@@ -74,7 +73,6 @@ const HomePage = () => {
     <div className="relative">
       <MessageHeader hostName={'User Name'} />
       <Message messageInfo={mockHomeInfo} />
-      <MessageFooter />
     </div>
   );
 };
