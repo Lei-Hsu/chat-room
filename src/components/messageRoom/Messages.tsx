@@ -39,7 +39,7 @@ const Messages = ({ messageInfo }) => {
     lastMessageBox.current.scrollIntoView();
   }, [messageInfo]);
 
-  return <div className={`h-[810px] overflow-y-scroll p-10 pb-[120px]`}>{MessageBox}</div>;
+  return <div className={`h-[825px] overflow-y-scroll p-10 pb-[120px]`}>{MessageBox}</div>;
 };
 
 export default Messages;
