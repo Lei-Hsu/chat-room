@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 
-interface MessageProps {
-  from: 'host' | 'guest';
-  text: string;
-  time: string;
-}
+import { MessageBox } from '@Interface/I_messages';
 
-const Message = ({ from, text, time }: MessageProps) => {
+const Message = ({ from, text, time }: MessageBox) => {
   const isHost = from === 'host';
   const messageBox = isHost
     ? 'rounded-br-none bg-gradient-to-br from-cyan-200 to-cyan-300'
@@ -23,33 +19,27 @@ const Message = ({ from, text, time }: MessageProps) => {
   );
 };
 
-const mockMessageData = [
-  {
-    from: 'guest',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing',
-    time: '12:10',
-  },
-  {
-    from: 'host',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing  amet consectetur adipisicing amet consectetur adipisicing',
-    time: '12:12',
-  },
-  {
-    from: 'guest',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing',
-    time: '12:13',
-  },
-];
+const Messages = ({ messageInfo }) => {
+  const lastMessageBox = useRef(null);
 
-const Messages = () => {
-  return (
-    <div className={`h-[810px] overflow-y-scroll p-10 pb-[120px]`}>
-      {mockMessageData.length &&
-        mockMessageData.map((item: MessageProps) => (
-          <Message from={item.from} text={item.text} time={item.time} />
-        ))}
-    </div>
-  );
+  const MessageBox = useMemo(() => {
+    return (
+      <>
+        {messageInfo.length &&
+          messageInfo.map((item: MessageBox, index: number) => (
+            <div key={index} ref={messageInfo.length - 1 === index ? lastMessageBox : null}>
+              <Message from={item.from} text={item.text} time={item.time} />
+            </div>
+          ))}
+      </>
+    );
+  }, [messageInfo]);
+
+  useEffect(() => {
+    lastMessageBox.current.scrollIntoView();
+  }, [messageInfo]);
+
+  return <div className={`h-[810px] overflow-y-scroll p-10 pb-[120px]`}>{MessageBox}</div>;
 };
 
 export default Messages;
