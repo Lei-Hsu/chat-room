@@ -15,7 +15,7 @@ const MessageHeader = ({ imagePath, isOnline, userName }: MessageHeaderProps) =>
   const onlineText = isOnline ? 'Online now' : 'Offline';
 
   return (
-    <div className="relative flex items-center justify-center border border-b-gray-200 p-5">
+    <div className="relative flex items-center justify-center border-b border-b-gray-200 p-5">
       <IoIosArrowBack className="absolute left-5 h-8 w-8 cursor-pointer text-slate-400" />
       <div className="flex">
         {/* <Image height={40} width={40} src="" /> */}
