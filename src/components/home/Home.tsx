@@ -9,12 +9,12 @@ interface HomeProps {
 const Home = ({ friendsInfo }: HomeProps) => {
   const friendsBox = useMemo(() => {
     return (
-      <div>
+      <div className="px-10">
         {friendsInfo.length &&
           friendsInfo.map((item) => (
             <div
               key={item.id}
-              className="mb-2 flex cursor-pointer items-center border-b border-slate-100 p-4"
+              className="mb-2 flex cursor-pointer items-center border-b border-slate-100 py-4"
             >
               <div className="mr-4 h-10 w-10 rounded-full bg-yellow-300" />
               <div className="max-w-full">
