@@ -6,6 +6,9 @@ module.exports = {
     extend: {
       maxWidth: {
         '70p': '70%',
+      },
+      zIndex: {
+        '999': '999',
       }
     },
   },

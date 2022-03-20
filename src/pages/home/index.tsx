@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { HomeFriendsInfo } from '@Interface/I_home';
 
 import Home from '@Components/home/Home';
+import Popup from '@Components/popup/Popup';
 
 const index = () => {
   const router = useRouter();
@@ -36,6 +37,7 @@ const index = () => {
         <div className="text-center text-lg font-bold">Friends</div>
       </div>
       <Home friendsInfo={mockHomeInfoData} />
+      <Popup title={'Title'} />
     </div>
   );
 };
