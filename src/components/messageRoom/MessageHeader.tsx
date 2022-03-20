@@ -21,7 +21,7 @@ const MessageHeader = ({ imagePath, isOnline, userName }: MessageHeaderProps) =>
     <div className="relative flex items-center justify-center border-b border-b-gray-200 p-2">
       <IoIosArrowBack
         className="absolute left-5 h-8 w-8 cursor-pointer text-slate-400"
-        onClick={() => router.push('/home')}
+        onClick={() => router.push('/message')}
       />
       <div className="flex">
         {/* <Image height={40} width={40} src="" /> */}

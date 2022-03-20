@@ -14,14 +14,14 @@ const Footer = () => {
       path: '/home',
     },
     {
-      icon: <RiFindReplaceLine className="h-6 w-6" />,
-      text: 'Find User',
-      path: '/find',
-    },
-    {
       icon: <AiFillWechat className="h-6 w-6" />,
       text: 'Messages',
       path: '/message',
+    },
+    {
+      icon: <RiFindReplaceLine className="h-6 w-6" />,
+      text: 'Find User',
+      path: '/find',
     },
   ];
 

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { useRouter } from 'next/router';
 
 import { HomeFriendsInfo } from '@Interface/I_home';
 
 import Home from '@Components/home/Home';
 
 const index = () => {
+  const router = useRouter();
   const mockHomeInfoData: HomeFriendsInfo[] = [
     {
       id: 1,
@@ -22,6 +25,10 @@ const index = () => {
       title: 'yolo gogo yolo gogoyolo gogoyolo gogoyol ',
     },
   ];
+
+  useEffect(() => {
+    router.prefetch('/message');
+  }, []);
 
   return (
     <div>
