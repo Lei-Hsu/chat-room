@@ -6,11 +6,13 @@ import { useRouter } from 'next/router';
 import { Box, Button, FormControl, TextField } from '@material-ui/core';
 
 interface LoginDataType {
+  userName: string;
   account: string;
   password: string;
+  confirmPassword: string;
 }
 
-function Home() {
+function SignIn() {
   const route = useRouter();
   const [loginData, setLogInData] = useState<LoginDataType>(null);
 
@@ -21,15 +23,26 @@ function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
-        <title>Login</title>
+        <title>Sign In</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box style={{ marginBottom: '40px' }}>
-        <h1 className="text-2xl font-bold">Hello to BT Chat</h1>
+        <h1 className="text-2xl font-bold">Register</h1>
       </Box>
 
       <Box style={{ width: '250px' }}>
         <Box style={{ display: 'flex', flexDirection: 'column' }}>
+          <FormControl style={{ marginBottom: '15px' }}>
+            <TextField
+              label="User Name"
+              onChange={(e) =>
+                setLogInData({
+                  ...loginData,
+                  userName: e.target.value,
+                })
+              }
+            />
+          </FormControl>
           <FormControl style={{ marginBottom: '15px' }}>
             <TextField
               label="Account"
@@ -53,13 +66,25 @@ function Home() {
               }
             />
           </FormControl>
+          <FormControl style={{ marginBottom: '24px' }}>
+            <TextField
+              label="Confirm Password"
+              type="password"
+              onChange={(e) =>
+                setLogInData({
+                  ...loginData,
+                  confirmPassword: e.target.value,
+                })
+              }
+            />
+          </FormControl>
         </Box>
         <Box style={{ display: 'flex', justifyContent: 'space-between', width: 'auto' }}>
-          <Button color="primary" disableElevation onClick={() => route.push('/signIn')}>
-            SignIn
+          <Button color="primary" disableElevation onClick={() => route.push('/')}>
+            Back to Login
           </Button>
           <Button variant="contained" color="primary" disableElevation onClick={handleSubmit}>
-            Login
+            Submit
           </Button>
         </Box>
       </Box>
@@ -67,4 +92,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default SignIn;
