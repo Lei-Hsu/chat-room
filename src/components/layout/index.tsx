@@ -9,7 +9,7 @@ const Layout = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
 
   const FooterArea = () => {
-    const hiddenFooterPage: string[] = ['/message-room/[id]']; // 如果有要隱藏 footer 的頁面就把 router 加進來，例如：'/productList'
+    const hiddenFooterPage: string[] = ['/message-room/[id]', '/']; // 如果有要隱藏 footer 的頁面就把 router 加進來，例如：'/productList'
     const isHiddenFooter: boolean = hiddenFooterPage.includes(router.pathname);
 
     return isHiddenFooter ? <></> : <Footer />;
